@@ -1,241 +1,208 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <?php include_once ("header.php");?>
-    <?php include ("inc/function.php");?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#fff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+    <meta property="og:image">
+    <link rel="stylesheet" href="css/yeah.css" onload="this.onload=null;this.rel='stylesheet'">
+        <script src="js/flickity.pkgd.min.js"></script>
+        <style>
+            .flickity-button {box-shadow:none;}
+            /*.flickity-button-icon {color: #4fc6cf;}*/
+            .flickity-button:hover {background: 0;}
+            img.lazyload {padding:2.3em;}
+        </style> 
 </head>
 
 <body>
-  <main class='ffw' style='ackground:#f7f7f7'>
-
-    <?php
-    
-        $pth0 = !empty($path[0]) ? $path[0] : 'Nenhuma';
-        $pth1 = !empty($path[1]) ? $path[1] : '';
-        $epth1 = explode('-', $pth1);
-        $f = !empty($epth1[0]) ? $epth1[0] : '';
-        
-        $favail=0;$efiltrar='';
-        if(isset($_GET['filtrar'])) {
-            $efiltrar=explode('-', $_GET['filtrar']);
-            $chkfavail = ['chegando', 'leilao', 'fornecedor internacional'];
-            $favail = in_array($efiltrar[0], $chkfavail) ? $efiltrar[0] : 0;
-            $fprice = !empty($efiltrar[1]) ? $efiltrar[1] : '';
-            $efprice = explode('_', str_replace(' ','', str_replace(',','',str_replace('KZs','',$fprice))));
-            $efprice1 = $efprice[0];
-            $efprice2 = $efprice[1];
-            $efilt3 = !empty($efiltrar[2]) ? $efiltrar[2] : 0;
-            $eurlbf = explode('&filtrar', $url)[0];}
-            
-        $gc = str_replace('-', ' ', $gtc);
-
-        $fetch_cat=$con->prepare("select catid,title,catimg from categories where section=:gc");
-        $fetch_cat->bindValue(':gc', $gc, PDO::PARAM_STR);
-        $fetch_cat->fetchAll(PDO::FETCH_ASSOC);
-        $fetch_cat->execute();
-        if($fetch_cat->rowCount() > 0) {$row_cat=$fetch_cat->fetchAll();}
-        else{$row_cat=0;}
-        
-        $fetch_pro=$con->prepare("select pid,pname,section,price,pfeat4,avail from products  order by pid desc limit 0,12");
-        $fetch_pro->setFetchMode (PDO:: FETCH_ASSOC);
-        $fetch_pro->execute();
-
-      echo"
-        <div class='ff bli f13 aic sameline smxs_none' style='padding: 0.75em 1.7em;'>
-            <a href='https://www.ibinza.com/?home' class='aic underline mr025em'>Início
-            </a>
-            <img class='img10' src='imgs/icons/rightchev.png'>
-            <a href='https://www.ibinza.com/categoria?lilo=pt&amp;c=Vehiculos-e-transporte' class='aic underline ml05em mr025em'>Vehiculos e transporte
-            </a>
-            <img class='img10' src='imgs/icons/rightchev.png'>
-            <span class='mr05em gc2 ml05em txtlmt'>Carros a Venda</span>
+    <main class='ffw center smxs _gb' style='ackground:#f9f9f9'>
+        <div class='ffw walinc pt05em smxs_none'>
+            <div class='ff sameline'>
+                 <a href='#' class='f14 gc2 pr075em underline non'><img src='imgs/icons/leftchev.png' class='mr05em img10'>Voltar /</a>
+                 <span class='f13 gc2'> ihoihoi </span>iigoigoigi
+             </div>
         </div>
-        <div class='ffw spacbwt mt025e none_smxs p015em pt05em wb aic'>
-            <a href='https://www.ibinza.com/?".$lilo."home'><img src='imgs/icons/leftchev.png' class='img20'></a>
-            <a href='https://www.ibinza.com/?".$lilo."home' class='f25 center aic pl05em_smxs'><img src='imgs/logoib.png' class='mr025em mb025em' width='13.5%'>ibinza
-            </a>
-            <p></p>
-        </div>
-        <section class='walinc full'>
-            <div class='ffw wb smxs_stick index-8'>
-                <div class='full index-12 p025em wb fixed_smxs none_smxs' style='padding-top: 0.5em;'>
-                    <form method='post' action='pesquisar' id='input1' style='height: 1.3em' class='col-sm-12 col-xs-12 flex aic bli b6 nne _smxs'>
-                        <button type='submit' class='p1em bord0 aic b0 wb b6' style=''>
-                          <img src='imgs/icons/bsearch.png' class='img20 pointer mr025e'>
-                        </button>
-                        <input name='q' value='' type='text' class='full bord0 fh b0' style=';color: #333;font-size:18px;padding-left: 0;' placeholder='Endereço, zona'>
-                    </form>
-                </div>
-                <div class='ffw walinc mt075em plr025em smxs_none'>
-                    <span class='full f25 bold'>Categorias</span>
-                    <div class='sameline f13 flex mb025em mt075em gc5 maxc'>
-                        <span class='mr025em bc'>Mostrando 1 - 12</span> 
-                        de $rescount item(s) 
-                    </div>
-                </div>
-                <div class='ff wb walinc p025em' style='padding-top:0.1em'>";
-                    echo allcat('','','','','','Filtrar','border-right:#eee 1px solid;margin-right:0.25em',4);
-                    echo"
-                    <div class='ff xscroll_smxs'>";
-                        $styc='';
-                        echo allcat('','','','','','Cidade','',2);
-                        echo allcat($favail,$path,'',$fprice,$efprice,'Preços','',3);
-                        echo allcat('','','','','','Outros','',4);
-                    echo"
-                    </div>
-                </div>
+        <div id='boxWithShado' class='none _smxs stik index-11 ff spacbwt wb aic pt025e p025em wb mt05e' style='padding-top:0.45em;padding-bottom:0.45e'>
+            <div class='flex'>
+                <a href='#' class='none bli2 ml05em aic ceter img40 p015em r50' style='width: 2.43em;'></a>
+                <a href='#' class='non f14 aic gc2 pl05em mr025em'><img src='imgs/icons/leftchev.png' class='img15'> </a>
+                <a class='aic ml025em mr025em none'><img src='imgs/icons/menub.png' class='img20 non'></a>
             </div>
-            <img src='imgs/ccover.png' class='full r035em mb025em none'>
-            <div class='ff'>
-                <div class='col-lg-3 mt025em smxs_ none mr05em' style='width:8em;margin-right:1e'>
-                    <div class='full stick_ maxh fdc'>
-                        <div class='ffw fdc'>
-                            <p><strong>CATEGORIAS</strong></p>";
-                            foreach ($row_cat as $rowcat) {
-                                if($rowcat['catid']) {
-                                    $title=$rowcat['title'];
-                                    $titlid=$rowcat['catid'];
-                                    // $cidcn = $titlid.'-'.$title; 
-                                    echo"
-                                    <a href='https://www.ibinza.com/produtos?listagem=$titlid-$title' class='mt025em ml025em'><span class='f14'>$title</span></a>";}}
-                        echo"
-                        </div>
-                        <div style='ackground: #f0f1ff;height:9em;' class='ffw mt05em btn2 bli aic smxs_none'>
-                            <h6 class='bold'>Aliste o teu item em 5 minutos</h6>
-                            <span class='f12 gc2 lh105'>É grátis e fácil e podes começar agora mesmo</span>
-                            <a href='#' style='padding: 0.2em 2em;' class='maxc rc r015em'>
-                                <span style='font-size: 13px;'><strong>Vender</strong>
-                                </span>
+            <a href='https://www.ibinza.com/?home' class='f22 center fcool aic ml025em _smxs'><img src='imgs/ilogo.png' class='img30 mr025em mb025e' width='8%'>ibinza
+            </a>
+            <a href='#' class='p1e bord0 aic b0 wb'>
+                <img src='imgs/icons/menub.png' class='img20 pointer mr025e'>
+            </a>
+            <i class='none flex p05em'></i>
+        </div>
+        
+        <div class='smxs_ none mb025em ff spacbwt gd wc index-8 btn3'>
+            <div class='aic sameline'><img class='img15 mr025em' src='imgs/icons/location.png'><p>hvviuvi</p></div>
+        </div>
+        <img class='full mb025e none' src='imgs/topadd.png'>
+        <div class='plr025e pt025e none'><img class='full mb025e non' src='imgs/topadd.png'></div>
+        <div id='boxWithShado' style='ox-shadow:rgba(0, 0, 0, 0.08) 0px 30px 20px' class='ffw none pt025em bsldrk _smxs bbl_smxs stik inde-12 wb'>
+        </div>
+        <div id='boxWithShado' class='ffw index-12 pb025em pt025em none'>
+                <i class='ffw smxs_none pt025em'></i>
+                <div class='ff xscroll_smxs'>
+            </div>
+        <img class='full mb05em smxs_ none' src='imgs/topadd.png'/>
+        <section class='ff'>
+            <div class='ffw'>
+                <div class='ffw wb pt025e'></div>
+                <div id='boxWithShado' class='ffw stick sl4 bb bsldrk_smxs wb index-11 m bblt025e pt075e'>
+                    <div class='none flexw sameline f20 pl025em mb025em bold'>
+                        <span class='mr025em grnc'>123</span>fufyufu
+                    </div> 
+                    <div style='ox-shadow: rgba(0, 0, 0, 0.07) 0px 20px 18px;border-bottom: #e6e6e6 1px soli;' class='ffw smxs _gb sl4 li1 noe xscroll_smxs pb025e'>
+                        <div class='ff'>
+                            <a href='#' class='non f14 aic gc2 pl05em mr025em'><img src='imgs/icons/leftarr.png' class='img15'></a>
+                            <div class='ffw p035em mb025e noe'>
+                                <form method='get' id='input1' style='height: 1.35em;order-radius:0;border:#eaeaea 1.5px soli' class='none_smxs col-sm-12 col-xs-12 mt025em flex aic wb b2 b025em'>
+                                    <a href='https://www.ibinza.com/?home' class='aic ml025em br non'><img src='imgs/ilogo.png' class='img30 mr025em mb025e' width='8%'></a>
+                                    <a href='#' class='aic ml05em br pr05em none'><img src='imgs/icons/menub.png' class='img20'></a>
+                                    <button type='submit' class='p1em bord0 aic b0 wb'>
+                                      <img src='imgs/icons/gpin.png' class='img20 pointer mr025e'>
+                                    </button>
+                                    <input type='hidden' name='lilo' value='pt'>
+                                    <input name='p' type='text' value='#' class='full bord0 fh b0' style=';color: #333;font-size:18px;padding-left: 0;' placeholder='Endereço, zona'>
+                                    <button type='submit' class='p1em bord0 aic b0 wb'>
+                                      <img src='imgs/icons/search2.png' class='img20 pointer mr025e'>
+                                    </button>
+                                </form>
+                            </div>
+                            <a href='#' class='mr025em aic'>
+                                <img src='imgs/icons/menub.png' class='img25 pointer mr025e'>
                             </a>
                         </div>
+                        
+                    </div>
+                    
+                    <div class='ff aic r025em mt025em none' style='margin-bottom:0.35em'>
+                        <img src='imgs/icons/star-45.png' class='img30 mr05em'>
+                        <span class='full lh105 f17'>223 resultados para apartamentos a venda em Angola</span>
+                    </div>
+                    <div class='ff aic mt025em none'>
+                        <img src='imgs/icons/star-45.png' class='img15 mr025em none'>
+                        <span class='full plr05em lh105 gc3 f15 non'>233 resultados</span>
                     </div>
                 </div>
-                <div class='full mt025e' style='padding-top: 0.1e;'>
-                    <div class='full smxs_none mb05em'></div>
-                    <div class='ffw p05em r05em mb05em' style='background:#fcfaf8;padding-right:0'>
-                        <div href='#' class='f25 smxs_fdc flexw bold smxs_plr025em' style='olor: #fb4c7e;'>
-                            <span style='border-bottom:#333 3px solid;olor: #ff3e3e;' class='maxc f_adj'>Mais populares
-                            </span>
+                <div class='ff pl025em sameline mt025em none'>
+                    <a href='#' class='f14 gc2 pr075em underline'><img src='imgs/icons/leftchev.png' class='mr05em none img10'>início /</a>
+                    <span class='f13 gc2'> guyfu</span>
+                </div>
+                <div class='ffw pl05em mt05em mb025em'>
+                <div class='ffw r05em sl2 li1 pb025e pt025e mb025e' style='ackground: #fffdee;'>
+                    <span class='full f18 mb05em pl025em pt025em gc5 bld non'>Nenhum</span>
+                    <div class='ff xscroll_smxs'>
+                        <a style='height:1.35em;' href='#' class='plr05em sameline aic maxc r100 gb6 li1 dark  sl2 mr05em mb025em'><p>Produtos</p></a>
+                    </div>
+                </div>
+                </div>
+                <div class='ffw plr05em mb025em mt025e non'>
+                    <div class='non bold ff p015e pl025em r025em aic' style='adding-top: 0;'> 
+                        <img src='imgs/icons/star-45.png' class='none img30 mr05em'>
+                        <div class='l105 fcool f18 fw500'><strong>223 resultados</strong> para apartamentos a venda em Angola</div>
+                    </div>
+                </div>
+                
+                <div class='full plr05em mt025e'>
+                    <div class='ffw btn2 b3 r025em'>
+                        <div class='btn4 wb b3 r025em mr025em'>
+                            <span class='f13 bc'><strong>A venda</strong></span>
                         </div>
-                        <div class='ffw mt05em'>
-                            <div class='col-lg-3 col-xs-12 mb075em'>";
-                                foreach ($row_cat as $rowcat) {
-                                    if($rowcat['catid']) {
-                                        $title=$rowcat['title'];
-                                        $titlid=$rowcat['catid'];
-                                        $cidcn = $titlid.'-'.$title;
-                                        $impcidcn .= $cidcn.",";
-                                        $catimg=explode(',',$rowcat['catimg']);
-                                        foreach($catimg as $img){
-                                            if(explode('00',$img)[0] === 'imgty1') {
-                                            echo"
-                                            <a href='https://www.ibinza.com/?listagem=$titlid-$title' class='maxc plr075em mb025em mr05em bsl2 bli1 r035em center wb aic is-selected' style='height: 1.2em;'>
-                                                <span class='f14'>$title</span>
-                                            </a>";}}}}
-                            echo"
-                            </div>
-                            <div class='col-lg-9 col-xs-12 js-flickity overflow'>";
-                                while($row_pro=$fetch_pro->fetch()):
-                                    if($row_pro){
-                                        $ravail=$row_pro['avail'];
-                                        $eavail = explode('_', $ravail);
-                                        $avlp4 = !empty($eavail[4]) ? $eavail[4] : '0';
-                                        $epermi = explode('%',$avlp4);
-                                        if(!in_array(55, $epermi)){continue;}
-                                        $pid=$row_pro['pid'];$pname=$row_pro['pname'];$prc=$row_pro['price'];
-                                        $prc = str_replace('.00', '', number_format($prc, 2, '.', ','));
-                                        $encrpid = $pid*4290347;
-                                        $repname = str_replace(' ', '-', $pname);
-                                        $price =  $prc . ' KZS';
-                                        $pimgsty1='height:5em;width: 11em;';
-                                        $city = explode('-', $eavail[3])[2];
-                                        $lccity = str_replace(' ', '',strtolower($city));
-                                        $eli = explode('_',$lilo)[0];
-                                        $link = 'https://www.ibinza.com/?'.$eli.'_'.$lccity.'&detalhes='.$encrpid.'-'.$repname;
-                                        $pcsty='height:6.2em;border-radius: 0.35em;margin-right:0.5em;width: 100%;';
-                                        $imgsty = 'object-fit: cover;';
-                                        echo"
-                                        <div class='col-lg-3 col-md-4 col-sm-6 col-xs-8 gallery-cell mr05em'>";
-                                            echo getimage($pid,$link,$pcsty,$imgsty);
-                                            echo"
-                                            <div class='full mt025em'>
-                                                <a href='$link' class='flexw gc f17 txtlmt' style='olor:#3c73aa'>$pname</a>
-                                                <span class='f18 mt025em' style='olor:#aa4130'>
-                                                    <strong>$price</strong>
-                                                </span>";
-                                                // echo profeat($eavail,$city,'',$link,'','width:100%');
-                                            echo"    
+                        <div class='btn4'>
+                            <span class='f13 bluecol'>Em aluguer</span>
+                        </div>
+                        <div class='btn4 aic sameline'>
+                            
+                            <span class='f13 bluecol'>Curta Estadia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 smxs _ mt025e plr025em pt05em'  style='padding:.48em 0.68em;ackground:#f1f1f2'>
+                
+                                <div class='col-lg-12 col-md-12 col-sm-6 col-xs-12 flexw mb05em adjpimg1' style='margin-bottom:.85em'>
+                                    <div class='full overflow smxs _prosha bsldrk p025em wb r015em sl1 sl2 flex_smxs fh' style='order:1px solid rgb(247, 247, 248);ox-shadow: rgba(0, 0, 0, 0.02) 0px 4px 8px -2px, rgba(0, 0, 0, 0.02) 0px 3px 8px, rgba(0, 0, 0, 0.04) 0px 1px 10px;'>
+                                        <div class='col-lg-6 br_smxs col-md-8 fdc adjpimg2'>
+                                        <div class='full fh overflow js-flickity'>
+                                            <a href='#' class='full gallery-cell center proimg r05e overflow enter imgsz_smxs' style='background:rgb(220, 225, 225)'>
+                                                <img style='position:unset;' class='lazyload fit r05e' src='imgs/icons/spinner.gif' height='100%' width='100%' data-src='imgs/pro_img/car.png' alt=''>
+                                            </a>
+                                        </div>
+                                        <div class='ff absolute mt025em index-6 non' style='margin-top: -1.35em;'><p class='plr075em ml075em mt025em maxc r025em f15 wc bold' style='background: #24242426;'><img class='mr05em img15' src='imgs/icons/wcam.png'/>896</p></div>
+                                        </div>
+                                    <div class='full lh1075 pt025em p025em_ smxs' style=''>
+                                            <div class='ff smxs _p025em plr025e spacbwt sameline'>
+                                                <span class='aic underline fw500 f14 sameline'><img src='imgs/icons/location.png' class='img15 mr025em'/>Luanda</span><strong><p>2,394,539 AOA</strong></p>
                                             </div>
-                                        </div>";}
-                                endwhile;
-                            echo"
-                            </div>
-                        </div>
-                    </div>
-                    <div class='ffw wb li r05em'>
-                        <div class='full t05em'>
-                            <span class='ffw pb025em mt025em none'>
-                                <p><strong>Explore listagem</strong></p>
-                            </span>";
-                            // ========= Subcategorias ===========
-                            $cnt=0;
-                            foreach ($row_cat as $rowcat) {
-                                $titlid=$rowcat['catid'];
-                                $title=$rowcat['title'];
-                                $cat=$rowcat['catimg'];
-                                echo"
-                                <div class='ffw wb btn2'>
-                                    <span class='full f16 bold'>$title</span>
-                                </div>
-                                <div class='ffw mb075em'>";
-                                    if(!empty($cat)) {
-                                        $catimg=explode(',',rtrim($cat, ","));
-                                        $cntcat = count($catimg);
-                                        foreach ($catimg as $img) {
-                                            $scnam = explode('.', $img)[0];
-                                            $cnt++;
-                                            if ($cnt <= 6) {
-                                                if (explode('00', $img)[0] === 'imgty1') {continue;}
-                                                echo"
-                                                <div class='col-lg-2 col-md-4 col-sm-6 col-xs-6'>
-                                                    <a href='https://www.ibinza.com/?listagem=$titlid-$title-$scnam' class='ffw p035em'>
-                                                        <figure class='ffw overflow center r035em' style='height:5.5em'><img loading='lazy' class='fh' src='imgs/cat_img/$img' alt=''>
-                                                        <span class='ffw wc p05em f16 lh105 txtlmt' style='background: #2d282870;margin-top: -2.5em;'>$scnam</span>
-                                                        </figure>
-                                                    </a>
-                                                </div>";}
-                                                
-                                            if($cnt == $cntcat && $cntcat > 6){
-                                                echo "
-                                                <div class='col-lg-3 col-md-6 col-sm-6 col-xs-6'>
-                                                    <div class='ffw fh p025em bl1 bb1'>
-                                                        <span class='ffw maxh'><p class='ffw lh105 gc'>Outras categorias</p>";
-                                                        for ($i = 6; $i < min(9, $cntcat); $i++) {
-                                                            if (isset($catimg[$i])) {                   $scnam = explode('.', $catimg[$i])[0];
-                                                                echo"<a href='https://www.ibinza.com/?listagem=$titlid-$title-$scnam' class='mt025em mr025em r015em btn3 bdark bold'><p>$scnam</p></a>";}}
-                                                        echo"
+                                            <div class='ffw spacbwt p015em mt025em pt025em bt' style=''>
+                                                <div class='col-lg-6 col-md-5 col-sm-6 col-xs-6 flex'>
+                                                    <div class='ff mb05e'>
+                                                        <span style='width:1.25em;height:1.25em' class='gb6 center r50 overflow mr05em'>
+                                                            <img src='imgs/shop.png' class='gb2 img20'>
                                                         </span>
+                                                        <div class='fdc lh105'>
+                                                            <span class='f12 fw500'>Agente</span>
+                                                            <span class='f13 gc4'>Luanda</span>
+                                                        </div>
                                                     </div>
-                                                </div>";}}$cnt=0;}
-                                echo"</div>";}
-                            echo"
-                            <div class='ffw wb bl br mt025e btn2 b05em none'>
-                                <span class='full f16 bold'>Carros novos</span>
+                                                </div>
+                                                <div class='col-lg-6 col-md-5 col-sm-6 col-xs-6 air mb025e'>
+                                                    <div class='ff'>
+                                                            <a href='https://wa.me/+244938531467?text=Olá,%20estou%20interessado(a)%20neste%20item.%20Referência:Solicitar' style='height:1.2em;width: 1.5em;' class='full none bli1 aic mr025em center r015em'><img class='img20' src='imgs/icons/grnwhatsaap.png'>
+                                                            </a>
+                                                            <a href='tel:+244938531467' style='height:1.2em;width: 1.5em' class='full bli1 aic bold mr025em center r015em'><img class='img15' src='imgs/icons/rcall.png'>
+                                                            </a>
+                                                        <a href='#' style='height:1.2em;background: #2c3c4f;width: 3em;' class='full aic wc bold center r015em'><span class='sameline f13 fw500'>Contactar</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class='ffw br bt t05em none'>";
-                            echo"</div></div>
-                        </div>
-                    </div>
+
+
+                            
                 </div>
             </div>
-        </section>";
-
-    ?>
+        </section>
         
-  </main>
+    </main>
   
     <script defer src="js/flickity.pkgd.min.js"></script>
-  
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var menuCheckbox = document.querySelector('.menu-checkbox');
+            var menuDropdown = document.querySelector('.menu-dropdown');
+            var menu = document.querySelector('.menu');
+        
+            menuDropdown.addEventListener('transitionend', function () {
+                if (menuDropdown.style.visibility === 'hidden') {
+                    menuCheckbox.checked = false;
+                }
+            });
+        
+            document.addEventListener('click', function (event) {
+                var isClickInsideMenu = menu.contains(event.target);
+        
+                if (!isClickInsideMenu) {
+                    menuCheckbox.checked = false;
+                }
+            });
+        });
+
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const images = document.querySelectorAll('img.lazyload');
@@ -244,6 +211,7 @@
                     if (entry.isIntersecting) {
                         const lazyImage = entry.target;
                         lazyImage.src = lazyImage.dataset.src; // This will trigger the load of the image
+                        // lazyImage.style.width = '100%';
                         lazyImage.onload = () => {
                             lazyImage.classList.remove('lazyload'); // This will remove the spinner
                         };
@@ -257,5 +225,65 @@
         });
     </script>
   
+    <script defer>
+        const showMoreButtons = document.querySelectorAll('.showMoreBtn');
+        showMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const entry = button.parentElement;
+                const description = entry.querySelector('.description');
+            
+            if (description.style.maxHeight === '60px') {
+                description.style.maxHeight = 'none';
+                button.textContent = 'Ver menos';} 
+            else {
+                description.style.maxHeight = '60px';
+                button.textContent = 'Ver mais';}});});
+    </script>
+    
+    <script>
+        window.addEventListener('scroll', function() {
+        var box = document.getElementById('boxWithShadow');
+        var scrollPosition = window.scrollY;
+    
+        var scrollThreshold = 0;
+    
+        if (scrollPosition > scrollThreshold) {
+            box.style.boxShadow = 'rgba(0, 0, 0, 0.07) 0px 2px 5px, rgba(0, 0, 0, 0.15) 0px 4px 30px';
+            // box.style.boxShadow = 'rgba(0, 0, 0, 0.02) 0px 4px 8px -2px, rgba(0, 0, 0, 0.02) 0px 3px 8px, rgba(0, 0, 0, 0.04) 0px 1px 10px';
+            box.style.position = 'fixe';
+            box.style.top = 0;
+            box.style.right = 0;
+            box.style.left = 0;
+            box.style.borderBottom = '0';
+            // box.style.paddingTop = '0.65em';
+            box.style.paddingBottom = '0.25e';
+            box.style.maxWidth = '100%';
+            box.style.background = '#fff';
+        } else {
+            box.style.boxShadow = '';
+            // box.style.boxShadow = '0px 1px 3px -1px rgba(26,26,26,0.3)';
+            box.style.position = 'stati';
+            // box.style.paddingTop = '0';
+            box.style.paddingBottom = '0';
+            // box.style.paddingLeft = '0em';
+            box.style.borderBottom = '#d1d1d6 1px solid';
+            box.style.background = '';}});
+    </script>
+    
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        document.getElementById("navbar").style.top = "0";
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+          } else {
+            document.getElementById("navbar").style.top = "-50px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+    </script>
+    
+    
   </body>
   </html>
