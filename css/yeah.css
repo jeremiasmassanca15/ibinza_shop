@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Telefon:wght@300&display=swap');
 
-
+ 
 
 * {box-sizing: border-box;margin: 0;padding: 0;font-family: Rubik, Satoshi,Segoe UI,Avenir,Roboto,Helvetica Neue,'Telefon Light', sans-serif !important;}html, body {scroll-behavior: smooth;-moz-osx-font-smoothing: grayscale;background:#fff;text-decoration: none;font-size: 1.41em;line-height: 0.857em;color: #222222;margin: 0;height: 100%;}a {text-decoration: none;color:#222222;}a:active {color: #222222;}
 .muli {font-family:'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif}.fcool {font-family: 'Rubik', sans-serif;font-weight: 600;}
