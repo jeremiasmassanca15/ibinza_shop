@@ -19,8 +19,6 @@
         </style> 
 </head>
 <body>
-    <?php 
-    echo"
     <main class='ffw center smxs pt025e _gb' style='ackground:#fafafa'>
         <div class='ffw walinc pt05e smxs_none'>
             <div class='ff sameline'>
@@ -79,11 +77,33 @@
                                 </div>
                             </div>
                         </div>
-                    </div>";
-                    echo allcat('','','','','','Cidade','4em',2);
-                    echo allcat('','','','','','Tipo','4em',4);
-                    echo allcat('','','',0,0,'Preços','4em',3);
-                    echo"
+                    </div>
+                    <ul tabindex='0' class='flex menu pl025em lh1' style='min-width: 4em;'>
+                        <li class='flex _smxs bdark li1 b6 r025em pillh_smxs center aic pointer' style='ackground:#f7fbf9;order:#afe1d1 1px solid'>
+                            <span class='f14 fw500'>Filtrar</span>
+                            <img class='img15 ml025em' src='imgs/icons/$icimg'>
+                        </li>
+                        <li class='ffw'>
+                            <div class='w11em colflend droppos menu-dropdown' style='margin-bottom: 1.85em;right:'>
+                                <div class='full popshad smxs_popmartop mt025em wb r025em'>
+                                    <div class='full flexw p05em'>
+                                        <label class='ff aic spacbwt b0 bord0 mb05em'></label>
+                                        <form method='post' id='info' class='full mt025em'>                                
+                                            <p><strong>Preço mínimo</strong></p>
+                                            <span id='input1' class='full b mb05em mt025em'>
+                                                <input class="full" type="text" data-type="currency">
+                                            </span>
+                                            <p><strong>Preço máximo</strong></p>
+                                            <span id='input1' class='full b mb05em mt025em'>
+                                                <input class="full" data-type="currency">
+                                           </span>
+                                            <input type='submit' name='aplicar' value='Aplicar' style='border-radius:0.1em;border:#326ca6 1px solid;color:#326ca6;font-size:14px;height: 3em;' class='full b0 pointer center aic bli2'/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                     <div id='boxWithShadow' class='ff stick bsl3 mt025em bt plr035em wb pt025em pb025em' style='ackground:#fafafa;height:1.7em'>
                         <div style='background:#f5f9fe;border:#9cc3f7 1px solid' class='full btn2 r025e aic center'>
                             <span class='sameline f14 fw600'><img src='imgs/icons/adj.png' class='img15 mr05em'>Filtrar</span>
@@ -782,145 +802,7 @@
                     <span class='f12'>Conta</span>
                 </a>
             </div>
-        </div>";
-
-    function allcat($fc1,$fc2,$fc3,$fc4,$fc5,$fc6,$fc7,$fc8) {
-    $url = '#'; $lilo = 'pt'; $url1='#'; $lo='Luanda'; $urlli = ''; $site = 'www.ibinza.com'; $site = '?'.$site;
-    $cls = 0;$clsn = '';$styc1='';$icimg='smchev.png';$furl = $url;
-    $filter1 = $filter = $fc6;$mr = '';$limpf=1;
-    
-    if($fc8 == 2) {
-        $styc1 = 'padding-left:0';
-        $cities = array('luanda','cabinda','benguela','huambo','bengo');
-        $cls = in_array($lo,$cities) ? 1 : 0;$limpf=0;$mr = '';
-        if($cls == 1) {$clsn = '_'.$lo;$filter = ucfirst($lo);}}
-        
-    if($fc8 == 3) {
-        $cls = !empty($fc5) ? 1 : 0;$limpf=1;
-        $favail=$fc1;$clsn = '';
-        $prc1 =  str_replace('.00','', number_format($fc5[0], 2, '.', ','));
-        $prc2 =  str_replace('.00','', number_format($fc5[1], 2, '.', ','));
-        if($cls == 1) {
-            $clsn = '&filtrar='.$favail.'-'.$fc4;
-            $filter = 'KZs '.$prc1.' - '.$prc2;}
-    
-        $pth0 = !empty($fc2[0]) ? $fc2[0] : 'Nenhuma';
-        $urlbf = isset($_GET['filtrar']) ? explode('&filtrar',$furl)[0]:$furl;}
-        
-    // if($fc8 == 1 && !empty($fc3)) {
-    //     $cls = 1;$filter = $clsn = $fc3;}
-        
-    if($fc8 == 4) {}
-
-    if($cls == 1) {
-        $furl = str_replace($clsn,'',$furl);
-        $icimg='closerc.png';}
-    echo"
-    <ul tabindex='0' class='flex menu pl025em lh1' style='min-width: 4em;$fc7'>
-        <li class='flex _smxs bdark li1 b6 r025em pillh_smxs center aic pointer' style='$styc1;$styc2l;ackground:#f7fbf9;order:#afe1d1 1px solid'>
-            <span class='f14 fw500'>$filter</span>
-            <img class='img15 ml025em' src='imgs/icons/$icimg'>
-        </li>
-        <li class='ffw'>
-            <div class='w11em colflend droppos menu-dropdown' style='margin-bottom: 1.85em;right: $mr;'>
-                <div class='full popshad smxs_popmartop mt025em wb r025em'>
-                    <div class='full flexw p05em'>
-                        <label class='ff aic spacbwt b0 bord0 mb05em'>
-                            <h6>$filter1</h6>";
-                            if($limpf == 1) {
-                                echo"
-                                <a href='$furl' class='rc f14 underline'>Limprar Filtro</a>";}
-                        echo"
-                        </label>";
-                        if($fc8 == 2){
-                            $chk='';$sty1='';$lo = str_replace('_','',$lo);
-                            foreach ($cities as $fcity) {
-                                $fcity = $fcity.'&';
-                                $fcty = str_replace('&','',$fcity);
-                                $href = $urlli.'_'.$fcity.''.$url1;
-                                
-                                if ($fcty === $lo) {
-                                    $sty1='font-weight:bold';
-                                    $href = $urlli.'&'.$url1;$chk='checked';}
-
-                                $href = str_replace('&popfilt', '', $href);
-                        
-                                $ucity=ucfirst($fcity);
-                                $ucity = str_replace('&','',$ucity);
-                                echo"
-                                <a href='$href' class='maxc aic mb05em mr075em checkbox style-c'>
-                                    <input type='checkbox' autocomplete='off' $chk/>
-                                    <div class='checkbox__checkmark'></div>
-                                    <div class='checkbox__body' style='$sty1'><p>$ucity</p></div>
-                                </a>";$chk='';$sty1='';}}
-                        elseif($fc8 == 3) {
-                            echo"
-                            <form method='post' id='info' class='full mt025em'>
-                                <p><strong>Preço mínimo</strong></p>
-                                <span id='input1' class='full b mb05em mt025em'>";
-                                  echo'<input class="full" name="prcmin" id="currency-field" pattern="^\KZs \d{1,3}(,\d{3})*(\.\d+)?KZs " value="'.$prc1.'" type="text" data-type="currency">';echo"
-                                </span>
-                                <p><strong>Preço máximo</strong></p>
-                                <span id='input1' class='full b mb05em mt025em'>";
-                                  echo'<input class="full" name="prcmax" id="currency-field" pattern="^\KZs \d{1,3}(,\d{3})*(\.\d+)?KZs " type="text" value="'.$prc2.'" data-type="currency">';echo"
-                                </span>
-                                <input type='submit' name='aplicar' value='Aplicar' style='border-radius:0.1em;border:#326ca6 1px solid;color:#326ca6;font-size:14px;height: 3em;' class='full b0 pointer center aic bli2'/>
-                            </form>";
-                            if(isset($_POST['aplicar'])) {
-                                $prcmin = !empty($_POST['prcmin']) ? $_POST['prcmin'] : '0';
-                                $prcmax = !empty($_POST['prcmax']) ? $_POST['prcmax'] : 'KZs500,000';
-                                $prminmax=$prcmin.'_'.$prcmax;
-                                $prminmax = str_replace(',','',$prminmax);$prminmax = str_replace(',','',$prminmax);
-                                $prminmax =str_replace(',','',$prminmax);
-                                $filtr= $favail.'-'.$prminmax;
-                                $link1 = $urlbf."&filtrar=".$filtr;
-                                echo"<script>window.open('https://www.ibinza.com".$link1."','_self');</script>";}
-                              
-                            if($prc1 > 0 && $prc2 <= 0){
-                              echo "<script>alert ('O preço máximo não pode ser zero !!!');</script>";$v1=0;}
-                            else{$v1=1;}
-                            echo'<script src="js/jquery.min.js"></script>';
-                            echo '
-                            <script>
-                            $(document).ready(function() {
-                                $("input[data-type=\"currency\"]").on({
-                                    input: function() { formatCurrency($(this)); },
-                                    focusout: function() { switchToNextInput($(this)); }
-                                });
-                                function formatNumber(n) {
-                                    return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
-                                function formatCurrency(input) {
-                                    var input_val = input.val();
-                                    if (input_val === "") { return; }
-                                    var decimal_pos = input_val.indexOf(".");
-                                    if (decimal_pos >= 0) {
-                                        var left_side = input_val.substring(0, decimal_pos);
-                                        var right_side = input_val.substring(decimal_pos);
-                                        left_side = formatNumber(left_side);
-                                        right_side = formatNumber(right_side);
-                                        input_val = "KZs" + left_side + (right_side === "" ? "" : "." + right_side);
-                                    } else {
-                                        input_val = "KZs" + formatNumber(input_val);
-                                    }
-                                    input.val(input_val);}
-                                function switchToNextInput(input) {
-                                    var nextInput = input.next(\'input[data-type="currency"]\');
-                                    if (nextInput.length) { nextInput.focus(); }
-                                }});
-                            </script>';}
-                        elseif($fc8 == 4) {
-                            echo"
-                            <a href='https://www.ibinza.com/?lilo=pt&listagem=16-17-Casas' class='btn2 b maxc r025em wb mr05em'><span class='f13'>A venda</span></a>";}
-                        echo"
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>";
-    
-    
-}
-    ?>
+        </div>
   
     <script defer src="js/flickity.pkgd.min.js"></script>
     
