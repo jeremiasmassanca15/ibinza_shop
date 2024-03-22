@@ -172,7 +172,7 @@
                         <span style='' class='sameline f14 fw500'>Dono<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
                     </a>
                 </div>
-                <div style='margin-top:0.35em' class='ffw plr035em mb025e nne'>
+                <div id='boxWithShadow' style='margin-top:0.35e' class='ffw p035em mb025e nne'>
                     <div class='ffw r05em sl2 li1 pb025e pt025e mb025e' style='ackground: #fffdee;'>
                         <span class='full f14 mb05em pl025em pt05e gc5 bld none'>Categorias</span>
                         <div class='ff xscroll_smxs'>
@@ -935,29 +935,29 @@
         if (scrollPosition > scrollThreshold) {
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.1) 0px 13px 16px';
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.02) 0px 4px 8px -2px, rgba(0, 0, 0, 0.02) 0px 3px 8px, rgba(0, 0, 0, 0.04) 0px 1px 10px';
-            box.style.boxShadow = '';
+            // box.style.boxShadow = '';
             box.style.position = 'fixed';
             box.style.top = 0;
             box.style.right = 0;
             box.style.left = 0;
-            // box.style.borderBottom = '1px solid e4e4e4';
+            box.style.borderBottom = '#eaecec 1px solid';
             // box.style.padding = '0.2em';
             // box.style.background = '#fffffff0';
             // box.style.color = '#111';
             box.style.marginTop = '1.54em';
-            box.style.paddingTop = '0.45em';
+            // box.style.paddingTop = '0.45em';
             box.style.maxWidth = '100%';
         } else {
             // box.style.boxShadow = '0px 7px 10px -5.5px rgba(180,191,198,0.3)';
             // box.style.boxShadow = '';
             box.style.position = '';
             // box.style.color = '#fff';
-            box.style.paddingTop = '0.15em';
+            // box.style.paddingTop = '0.15em';
             // box.style.paddingTop = '0';
             // box.style.padding = '0';
             box.style.marginTop = '0';
             // box.style.paddingLeft = '0.35em';
-            // box.style.borderBottom = '0';
+            box.style.borderBottom = '0';
             // box.style.background = '#fff';
         }});
     </script>
