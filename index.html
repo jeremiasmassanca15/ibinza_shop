@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <ul tabindex='0' class='flex menu pl025em lh1 none' style='min-width: 4em;'>
-                        <li class='flex _smxs bdark li1 b6 r025em pillh_smxs center aic pointer none' style='ackground:#f7fbf9;order:#afe1d1 1px solid'>
+                        <li class='flex _smxs bdark li1 b6 r025em pillh_smxs center aic pointer none'>
                             <span class='f14 fw500'>Filtrar</span>
                             <img class='img15 ml025em' src='imgs/icons/$icimg'>
                         </li>
@@ -119,17 +119,18 @@
                                             <label class='ff aic spacbwt b0 bord0 mb05em'></label>
                                             <form method='post' id='info' class='full mt025em'>                                
                                                 <div class='ff spacbwt'>
-                                                    <p class='sameline'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
-                                                    <button onclick='toggleSelect()' class='sameline b0 bord0 f14 fw500'>
-                                                        Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'>
-                                                    </button>
-                                                    <select id='cities' style='visibility: hidden;'>
-                                                        <option value='new-york'>New York</option>
-                                                        <option value='london'>London</option>
-                                                        <option value='tokyo'>Tokyo</option>
-                                                        <option value='paris'>Paris</option>
-                                                        <option value='sydney'>Sydney</option>
-                                                    </select>
+                                                    <p class='sameline none'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
+                                                    <span class="sameline f14 fw500">
+                                                        Procurando de
+                                                        <img src="imgs/icons/darrow.png" class="img10 ml025em">
+                                                        <select class='b0 bord0 bc bold'>
+                                                            <option value='new-york'>New York</option>
+                                                            <option value='london'>London</option>
+                                                            <option value='tokyo'>Tokyo</option>
+                                                            <option value='paris'>Paris</option>
+                                                            <option value='sydney'>Sydney</option>
+                                                        </select>
+                                                    </span>
                                                     <span class='sameline f14 fw500 none'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
                                                 </div>
                                                 <span id='input1' style='border-radius: 100px;height: 1.4em;' class='full gb7 r100 mb05em mt05em'>
@@ -842,19 +843,6 @@
         </div>
   
     <script defer src="js/flickity.pkgd.min.js"></script>
-
-    <script>
-        function toggleSelect() {
-          const select = document.getElementById('cities');
-          const isVisible = select.style.visibility === 'visible';
-          select.style.visibility = isVisible ? 'hidden' : 'visible';}
-        const citySelect = document.getElementById('cities');
-        const selectedCityPara = document.getElementById('selectedCity');
-        citySelect.addEventListener('change', function() {
-          const selectedCity = citySelect.options[citySelect.selectedIndex].text;
-          selectedCityPara.textContent = selectedCity;
-        });
-    </script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
