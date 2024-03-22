@@ -120,17 +120,16 @@
                                             <form method='post' id='info' class='full mt025em'>                                
                                                 <div class='ff spacbwt'>
                                                     <p class='sameline'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
-                                                    <span class='sameline f14 fw500'>
-                                                        Alterar cidade
-                                                        <img src='imgs/icons/darrow.png' class='img10 ml025em'>
-                                                        <select id='cities'>
-                                                            <option value='new-york'>New York</option>
-                                                            <option value='london'>London</option>
-                                                            <option value='tokyo'>Tokyo</option>
-                                                            <option value='paris'>Paris</option>
-                                                            <option value='sydney'>Sydney</option>
-                                                        </select>
-                                                    </span>
+                                                    <button onclick='toggleSelect()' class='sameline b0 bord0 f14 fw500'>
+                                                        Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'>
+                                                    </button>
+                                                    <select id='cities' style='visibility: hidden;'>
+                                                        <option value='new-york'>New York</option>
+                                                        <option value='london'>London</option>
+                                                        <option value='tokyo'>Tokyo</option>
+                                                        <option value='paris'>Paris</option>
+                                                        <option value='sydney'>Sydney</option>
+                                                    </select>
                                                     <span class='sameline f14 fw500 none'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
                                                 </div>
                                                 <span id='input1' style='border-radius: 100px;height: 1.4em;' class='full gb7 r100 mb05em mt05em'>
@@ -845,9 +844,12 @@
     <script defer src="js/flickity.pkgd.min.js"></script>
 
     <script>
+        function toggleSelect() {
+          const select = document.getElementById('cities');
+          const isVisible = select.style.visibility === 'visible';
+          select.style.visibility = isVisible ? 'hidden' : 'visible';}
         const citySelect = document.getElementById('cities');
         const selectedCityPara = document.getElementById('selectedCity');
-    
         citySelect.addEventListener('change', function() {
           const selectedCity = citySelect.options[citySelect.selectedIndex].text;
           selectedCityPara.textContent = selectedCity;
