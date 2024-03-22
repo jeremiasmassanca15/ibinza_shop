@@ -119,23 +119,19 @@
                                             <label class='ff aic spacbwt b0 bord0 mb05em'></label>
                                             <form method='post' id='info' class='full mt025em'>                                
                                                 <div class='ff spacbwt'>
-                                                    <p class='sameline'>Procurando de <strong class='pl025em'>Luanda </strong></p>
-                                                    <ul tabindex='0' class='flex menu mr025em'>
-                                                        <li class='full pointer'>
-                                                            <span class='sameline f14 fw500'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
-                                                        </li>
-                                                        <li class='ffw'>
-                                                            <div style='' class='w11em colflend droppos menu-dropdown'>
-                                                                <div class='full popshad smxs_popmartop mt025em wb r025em'>
-                                                                    <div style='' class='full flexw p05em index-13'>
-                                                                        <label class='ff aic spacbwt b0 bord0 mb05em'>
-                                                                            ever
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                    <p class='sameline'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
+                                                    <span class='sameline f14 fw500'>
+                                                        Alterar cidade
+                                                        <img src='imgs/icons/darrow.png' class='img10 ml025em'>
+                                                        <select id='cities'>
+                                                            <option value='new-york'>New York</option>
+                                                            <option value='london'>London</option>
+                                                            <option value='tokyo'>Tokyo</option>
+                                                            <option value='paris'>Paris</option>
+                                                            <option value='sydney'>Sydney</option>
+                                                        </select>
+                                                    </span>
+                                                    <span class='sameline f14 fw500 none'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
                                                 </div>
                                                 <span id='input1' style='border-radius: 100px;height: 1.4em;' class='full gb7 r100 mb05em mt05em'>
                                                     <input class='full' type='text' data-type='currency' style='background: 0;'>
@@ -847,6 +843,16 @@
         </div>
   
     <script defer src="js/flickity.pkgd.min.js"></script>
+
+    <script>
+        const citySelect = document.getElementById('cities');
+        const selectedCityPara = document.getElementById('selectedCity');
+    
+        citySelect.addEventListener('change', function() {
+          const selectedCity = citySelect.options[citySelect.selectedIndex].text;
+          selectedCityPara.textContent = selectedCity;
+        });
+    </script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
