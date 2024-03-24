@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <div id='boxWithShadow' class='ffw stick index-11 plr025em'>
+        <div id='boxWithShadow' class='ffw stick index-11 p025em'>
             <a style='height:1.5em' href='#' class='full sameline center aic maxc r100 wb bli1 blue-b wc fw500'>
                 <span class='f13 aic bold'>Pesquisa avançada<img src='imgs/icons/wsearch.png' class='img15 mt025em ml025em'></span>
             </a>
@@ -950,8 +950,8 @@
         var box = document.getElementById('boxWithShadow');
         var scrollPosition = window.scrollY;
     
-        // var scrollThreshold = 250;
-        var scrollThreshold = 0; 
+        var scrollThreshold = 50;
+        // var scrollThreshold = 0; 
     
         if (scrollPosition > scrollThreshold) {
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.1) 0px 13px 16px';
@@ -965,7 +965,7 @@
             // box.style.padding = '0.2em';
             // box.style.background = '#fffffff0';
             // box.style.color = '#111';
-            box.style.marginTop = '1.53em';
+            box.style.paddingTop = '1.7em';
             // box.style.paddingTop = '0.45em';
             box.style.maxWidth = '100%';
         } else {
@@ -976,7 +976,7 @@
             // box.style.paddingTop = '0.15em';
             // box.style.paddingTop = '0';
             // box.style.padding = '0';
-            box.style.marginTop = '0';
+            box.style.paddingTop = '0.25em';
             // box.style.paddingLeft = '0.35em';
             box.style.borderBottom = '0';
             // box.style.background = '#fff';
