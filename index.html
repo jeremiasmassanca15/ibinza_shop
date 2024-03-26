@@ -190,7 +190,7 @@
                                             </button>
                                         </div>
                         </form>
-                        <div class='full fdc xscroll _smxs mb025em' style='padding-top:0.15em'>
+                        <div id='boxWithShadow' class='full fdc xscroll _smxs mb025e' style='padding-top:0.15em'>
                             <div class='ff'>
                                 <a style='height:1.2em;border: #6a6868 1px soli;' href='#' class='full plr05em sameline aic r025em wb bli dark mr025em fw500'>
                                     <span class='f13 bold'>Tipologia<img src='imgs/icons/sortdown.png' class='img10 ml025em'></span>
@@ -208,7 +208,7 @@
                             </div>
                             <a style='height:1.1em;' href='#' class='plr05em mb025em sameline aic maxc r100 wb bli dark mr025em fw500 none'><span class='f13'>Cidade</span></a>
                         </div>
-                        <div id='boxWithShadow' class='ffw overflow index-12 wb' style='padding-bottom:0.15em'>
+                        <div id='boxWithShado' class='ffw overflow index-12 wb none' style='padding-bottom:0.15em'>
                             <a style='height:1.5em;order: #6a6868 1px solid;ackground:#ee403d' href='#' class='full plr05em center mt025e maxc r025em gb3 li 105 dark fw500'>
                                 <span class='f13 bold'>Pesquisa avançada<img src='imgs/icons/wsearch.png' class='img15 ml025em'></span>
                             </a>
@@ -240,53 +240,14 @@
                 
                             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 plr025e pt05em mt075e'  style='padding:.35em 0.32em;ackground:#f8f9fa'>
 
-                                <div class='col-lg-12 col-md-12 col-sm-6 col-xs-12 flexw mb05em adjpimg1' style='margin-bottom:1e;ox-shadow: rgba(28, 28, 28, 0.84) 0px 9px 8px -12px;'>
-                                    <div class='ff overflow r015em p05em bli1 bsldrk _smxs wb li1 sl2 flex_smxs fh'>
-                                        <div class='col-lg-6 br_smxs col-md-8 col-xs-7 full adjp ig2 none'>
-                                            <div class='full fh overflow js-flickity'>
-                                                <a href='#' class='full gallery-cell center proimg r025em overflow enter imgsz_smxs' style='height:3em'>
-                                                    <img style='position:unset;' class='lazyload fit r05e' src='imgs/icons/spinner.gif' height='100%' width='100%' data-src='imgs/zango0.jpg' alt=''>
-                                                </a>
-                                            </div> 
-                                        </div>
-                                        <div class='full pl025em smxs' style=''>
-                                            <div class='fdc lh2'>
-                                                <div class='fdc sameline none'>
-                                                    <span class='f18 fw600'>2,394,539 AOA</span>
-                                                    <span class='none aic fw500 txtlm f14 sameline'>Apartamento em arrendamento</span>
-                                                </div>
-                                                <div class='flex sameline'>
-                                                    <p class='maxc flex f14 mr05em'><img src='imgs/icons/check.png'class='img15 mr025em'/>Mobilado</p>
-                                                    <p class='maxc flex f14 mr05em'><img src='imgs/icons/check.png'class='img15 mr025em'/>Dono direito</p>
-                                                </div>
-                                                <div class='flex sameline none'>
-                                                    <p class='plr05em bli1 maxc r025em f14 mr05em'>Condomínio</p>
-                                                    <p class='plr05em bli1 maxc r025em f14 mr05em'>Aluguer</p>
-                                                </div>
-                                            </div>
-                                            <div class='ffw spacbwt pt025em'>
-                                                <div class='col-lg-6 col-md-5 col-sm-6 col-xs-12 flex'>
-                                                    <div class='ff mb05e'>
-                                                        <div class='fdc lh105'>
-                                                            <span class='f12 fw500 none'>Agente</span>
-                                                            <span class='f18 fw600'>2,394,539 AOA</span>
-                                                            <span class='f13'>Luanda</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class='none col-lg-6 col-md-5 col-sm-6 col-xs-12 mb025e'>
-                                                    <div class='ff spacbwt'>
-                                                        <p></p>
-                                                        <a href='tel:+244938531467' style='height:1.2em;width: 1.5em' class='full aic bold mr025em center r015em'>
-                                                            <img class='img15' src='imgs/icons/callred.png'>
-                                                        </a>
-                                                        <a href='#' style='height:1.2em;background: #eaf7ec;width: 4em;' class='full aic bold center r100'>
-                                                            <img src='imgs/icons/gwhatsapp.png' class='img15 mr025em'><span class='sameline f13 fw500'>Chat</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class='ffw fdc aic center mb05e'>
+                                    <div class='flex maxc'>
+                                        <p class='maxc flex f14 mr05em'><img src='imgs/icons/check.png' class='img15 mr025em'>Mobilado</p>
+                                        <p class='maxc flex f14 mr05em'><img src='imgs/icons/check.png' class='img15 mr025em'>Dono direito</p>
+                                    </div>
+                                    <div class='fdc maxc aic lh105'>
+                                        <span class='f18 fw600'>2,394,539 AOA</span>
+                                        <span class='f13'>Luanda</span>
                                     </div>
                                 </div>
 
@@ -950,9 +911,9 @@
             box.style.top = 0;
             box.style.right = 0;
             box.style.left = 0;
-            box.style.borderTop = '1px solid #e4e4e4';
+            // box.style.borderTop = '1px solid #e4e4e4';
             box.style.borderBottom = '1px solid #e4e4e4';
-            box.style.padding = '0.35em';
+            // box.style.padding = '0.35em';
             // box.style.background = '#fffffff0';
             // box.style.color = '#111';
             box.style.marginTop = '1.74em';
@@ -965,10 +926,10 @@
             // box.style.color = '#fff';
             // box.style.paddingTop = '0.15em';
             // box.style.paddingTop = '0';
-            box.style.padding = '0';
-            box.style.marginTop = '0';
+            // box.style.padding = '0';
+            // box.style.marginTop = '0';
             // box.style.paddingLeft = '0.35em';
-            box.style.borderTop = '0';
+            // box.style.borderTop = '0';
             box.style.borderBottom = '0';
             // box.style.background = '#fff';
         }});
