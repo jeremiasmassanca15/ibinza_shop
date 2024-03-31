@@ -76,7 +76,7 @@
                                         </span>
                                     </div>
             </div>
-            <div class='ff p025em bsldrk _smxs'>
+            <div id='boxWithShadow' class='ff p025em bsldrk _smxs'>
                                 <a style='height:1em;order: 1px solid rgb(0, 106, 255);ackground: #f2faff;' href='#' class='full plr035em sameline center r015em bdark mr025em'>
                                     <span class='f13'>Tipo<img src='imgs/icons/sortdown.png' class='img10 ml025em'></span>
                                 </a>
@@ -1044,36 +1044,36 @@
         var box = document.getElementById('boxWithShadow');
         var scrollPosition = window.scrollY;
     
-        var scrollThreshold = 150;
+        var scrollThreshold = 0;
     
         if (scrollPosition > scrollThreshold) {
-            // box.style.boxShadow = 'rgba(0, 0, 0, 0.1) 0px 13px 16px';
+            box.style.boxShadow = 'rgba(0, 0, 0, 0.1) 0px 4px 16px';
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.02) 0px 4px 8px -2px, rgba(0, 0, 0, 0.02) 0px 3px 8px, rgba(0, 0, 0, 0.04) 0px 1px 10px';
             // box.style.boxShadow = '';
-            box.style.position = 'fixed';
-            box.style.top = 0;
-            box.style.right = 0;
-            box.style.left = 0;
-            box.style.borderTop = '1px solid #e4e4e4';
-            box.style.borderBottom = '1px solid #e4e4e4';
-            box.style.padding = '0.2em';
+            // box.style.position = 'fixed';
+            // box.style.top = 0;
+            // box.style.right = 0;
+            // box.style.left = 0;
+            // box.style.borderTop = '1px solid #e4e4e4';
+            // box.style.borderBottom = '1px solid #e4e4e4';
+            // box.style.padding = '0.2em';
             // box.style.background = '#fffffff0';
             // box.style.color = '#111';
-            box.style.marginTop = '1.5em';
+            // box.style.marginTop = '1.5em';
             // box.style.paddingTop = '0.45em';
             // box.style.maxWidth = '100%';
         } else {
             // box.style.boxShadow = '0px 7px 10px -5.5px rgba(180,191,198,0.3)';
-            // box.style.boxShadow = '';
-            box.style.position = '';
+            box.style.boxShadow = '';
+            // box.style.position = '';
             // box.style.color = '#fff';
-            box.style.padding = '0.25em';
+            // box.style.padding = '0.25em';
             // box.style.paddingTop = '0.15em';
             // box.style.paddingTop = '0';
-            box.style.marginTop = '0';
+            // box.style.marginTop = '0';
             // box.style.paddingLeft = '0.35em';
-            box.style.borderTop = '0';
-            box.style.borderBottom = '0';
+            // box.style.borderTop = '0';
+            // box.style.borderBottom = '0';
             // box.style.background = '#fff';
         }});
     </script>
