@@ -42,7 +42,7 @@
         </div>
         <div class='ffw wb stick index-12'>
             <div style='' class='none_smxs bb sl3 rk center spacbwt ff aic wb'>
-                <form method='get' id='input1' style='height: 1.63em;' class='none_smxs col-sm-12 wb li105 r025em col-xs-12 flex aic'>
+                <div style='height: 1.63em;' class='none_smxs col-sm-12 wb li105 r025em col-xs-12 flex aic'>
                                             <button type='submit' class='p1em bord0 brl aic b0 wb' style='border-right: #eaeaea 1px solid;'>
                                                   <img src='ibbluen.png' class='pointer' style='max-width: 2.2em;width: 2.3em;'>
                                             </button> 
@@ -51,9 +51,52 @@
                                                     <img class='img20 pointer mr025e' src='imgs/icons/bsearch.png'>
                                                 </button>
                                             </div>
+
+                        <ul tabindex='0' class='flex menu ml025em'>
+                            <li style='height: 1.17e;border: #6a6868 1px soli' class='full tn2 ml025e wb r015e rl aic center pointer'>
+                                <span class='sameline f14 fw600 gc5'>Endereço, Zona<img src='imgs/icons/darrow.png' class='img10 ml025em none'></span>
+                            </li>
+                            <li class='ffw'>
+                                <div style='' class='w11em colflend droppos menu-dropdown'>
+                                    <div class='full popshad smxs_popmartop mt025em wb r025em'>
+                                        <div style='' class='full flexw p05em index-13'>
+                                            <label class='ff aic spacbwt b0 bord0 mb05em'></label>
+                                            <form method='post' id='info' class='full mt025em'>                                
+                                                <div class='ff spacbwt'>
+                                                    <p class='sameline none'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
+                                                    <span class="sameline f14 fw500">
+                                                        Procurando de
+                                                        <img src="imgs/icons/darrow.png" class="img10 ml025em">
+                                                        <select class='b0 bord0 bc bold'>
+                                                            <option value='new-york'>New York</option>
+                                                            <option value='london'>London</option>
+                                                            <option value='tokyo'>Tokyo</option>
+                                                            <option value='paris'>Paris</option>
+                                                            <option value='sydney'>Sydney</option>
+                                                        </select>
+                                                    </span>
+                                                    <span class='sameline f14 fw500 none'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
+                                                </div>
+                                                <span id='input1' style='border-radius: 100px;height: 1.4em;' class='full gb7 r100 mb05em mt05em'>
+                                                    <input class='full' type='text' data-type='currency' style='background: 0;'>
+                                                </span>
+                                                <p><strong>Sugestões</strong></p>
+                                                <span class='ffw mb05em mt025em'>
+                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Centralidade do Sequele</p>
+                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Vida Pacífica</p>
+                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Centralidade do Kilamba</p>
+                                                </span>
+                                                <input type='submit' name='aplicar' value='Aplicar' style='height: 3.3em;' class='full f14 gd wc bord0 r025em pointer center aic'>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                                            
                                             <input name='lilo' value='pt' type='hidden'>
-                                            <input name='p' type='text' value='' class='full bord0 fh b0' style=';color: #333;font-size:16px;padding-left:0' placeholder='Endereço, zona'>
-                </form>
+                                            <input name='p' type='text' value='' class='full bord0 fh b0 none' style=';color: #333;font-size:16px;padding-left:0' placeholder='Endereço, zona'>
+                </div>
                 <div class='w5em spacbwt aic'>
                     <span class='f15 blue col fw500 wc'>Sign in</span><a href='#' class='mr05em'><img src='imgs/icons/menu50.png' class='img25'></a>
                 </div>
@@ -159,47 +202,6 @@
                         <div style='background:#f5f9fe;border:#9cc3f7 1px solid;height: 1.17em;' class='full btn2 r015em aic center'>
                             <span class='sameline f14 fw600'><img src='imgs/icons/adj.png' class='img15 mr05em'>Filtrar</span>
                         </div>
-                        <ul tabindex='0' class='flex menu mr025em'>
-                            <li style='height: 1.17em;border: #6a6868 1px solid' class='full btn2 ml025em wb r015em rl aic center pointer'>
-                                <span class='sameline f14 fw600'>Mapa<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
-                            </li>
-                            <li class='ffw'>
-                                <div style='' class='w11em colflend droppos menu-dropdown'>
-                                    <div class='full popshad smxs_popmartop mt025em wb r025em'>
-                                        <div style='' class='full flexw p05em index-13'>
-                                            <label class='ff aic spacbwt b0 bord0 mb05em'></label>
-                                            <form method='post' id='info' class='full mt025em'>                                
-                                                <div class='ff spacbwt'>
-                                                    <p class='sameline none'>Procurando de <strong id='selectedCity' class='pl025em'>Luanda</strong></p>
-                                                    <span class="sameline f14 fw500">
-                                                        Procurando de
-                                                        <img src="imgs/icons/darrow.png" class="img10 ml025em">
-                                                        <select class='b0 bord0 bc bold'>
-                                                            <option value='new-york'>New York</option>
-                                                            <option value='london'>London</option>
-                                                            <option value='tokyo'>Tokyo</option>
-                                                            <option value='paris'>Paris</option>
-                                                            <option value='sydney'>Sydney</option>
-                                                        </select>
-                                                    </span>
-                                                    <span class='sameline f14 fw500 none'>Alterar cidade<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
-                                                </div>
-                                                <span id='input1' style='border-radius: 100px;height: 1.4em;' class='full gb7 r100 mb05em mt05em'>
-                                                    <input class='full' type='text' data-type='currency' style='background: 0;'>
-                                                </span>
-                                                <p><strong>Sugestões</strong></p>
-                                                <span class='ffw mb05em mt025em'>
-                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Centralidade do Sequele</p>
-                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Vida Pacífica</p>
-                                                    <p class='plr075em h3em bli1 maxc r100 f14 mr05em mb05em'>Centralidade do Kilamba</p>
-                                                </span>
-                                                <input type='submit' name='aplicar' value='Aplicar' style='height: 3.3em;' class='full f14 gd wc bord0 r025em pointer center aic'>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                         <div style='border: #6a6868 1px solid;height: 1.17em;' class='full btn2 ml025em wb r015em aic center'>
                             <span class='sameline f14 bold'>Alugar<img src='imgs/icons/darrow.png' class='img10 ml025em'></span>
                         </div>
