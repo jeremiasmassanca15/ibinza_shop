@@ -90,9 +90,9 @@
             
             <div id='boxWithShadow' class='ffw p025em bsldrk _smxs bold _smxs'>
                 <div class='ff scroll_x'>
-                                <a style='height:1.1em;border: 1px solid rgb(0, 106, 255);background: #f2faff;' href='#' class='full plr035em sameline center r015em b dark mr025em'>
+                                <div onclick='showPopup()' style='height:1.1em;border: 1px solid rgb(0, 106, 255);background: #f2faff;' class='full plr035em sameline center r015em b mr025em'>
                                     <span class='f14'>Filtrar<img src='imgs/icons/sortdown.png' class='img10 ml025em'></span>
-                                </a>
+                                </div>
                                 <ul tabindex='0' class='ff menu pr025em'>
                                     <li class='full plr035em fh sameline center r015em b mr025em'>
                                         <span class='f14'>Tipo<img src='imgs/icons/sortdown.png' class='img10 ml025em'></span>
@@ -1020,6 +1020,17 @@
             });
         });
 
+    </script>
+
+    <script>
+        function showPopup() {
+            document.querySelector('.popup').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';}
+    
+        function hidePopup() {
+            document.querySelector('.popup').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        }
     </script>
 
     <script>
