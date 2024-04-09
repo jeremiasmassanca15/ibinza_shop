@@ -42,7 +42,7 @@
                 <img width='14%' src='ibred.png' class='mg30 mr025em mt025em'>ibinza
             </a>
         </div>
-        <div class='ffw wb stick index-12'>
+        <div class='ffw wb index-12'>
             <div style='height: 2em;' class='none_smxs wb rk center spacbwt ff aic'>
                 <div class='none_smxs col-sm-12 li105 r025em col-xs-12 flex aic'>
                         <span class='sameline plr025em'><img class='img20 pointer mr025em' src='imgs/icons/leftarrow.png'></span>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             
-            <div id='boxWithShado' class='ffw p025em sl1 bsldrk _smxs bold _smxs' style='padding-right:0;box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 8px;'>
+            <div id='boxWithShadow' class='ffw p025em sl1 bsldrk _smxs bold _smxs' style='padding-right:0;box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 8px;'>
                 <div class='ff smxs_xscroll'>
                                 <div onclick='showPopup()' style='height:1em;border: 1px solid rgb(0, 106, 255);background: #f2faff;' class='full plr025em sameline center r100 b mr025em'>
                                     <span class='f14'>Filtrar<img src='imgs/icons/sortdown.png' class='img10 ml025em'></span>
@@ -1141,13 +1141,13 @@
         var scrollThreshold = 0;
     
         if (scrollPosition > scrollThreshold) {
-            box.style.boxShadow = '0 2px 3px rgba(0,0,0,.05),0 4px 8px rgba(0,0,0,.15)';
+            // box.style.boxShadow = '0 2px 3px rgba(0,0,0,.05),0 4px 8px rgba(0,0,0,.15)';
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.02) 0px 4px 8px -2px, rgba(0, 0, 0, 0.02) 0px 3px 8px, rgba(0, 0, 0, 0.04) 0px 1px 10px';
             // box.style.boxShadow = '';
-            // box.style.position = 'fixed';
-            // box.style.top = 0;
-            // box.style.right = 0;
-            // box.style.left = 0;
+            box.style.position = 'fixed';
+            box.style.top = 0;
+            box.style.right = 0;
+            box.style.left = 0;
             // box.style.borderTop = '1px solid #e4e4e4';
             // box.style.borderBottom = '1px solid #e4e4e4';
             // box.style.padding = '0.2em';
@@ -1158,8 +1158,8 @@
             // box.style.maxWidth = '100%';
         } else {
             // box.style.boxShadow = '0px 7px 10px -5.5px rgba(180,191,198,0.3)';
-            box.style.boxShadow = '';
-            // box.style.position = '';
+            // box.style.boxShadow = '';
+            box.style.position = '';
             // box.style.color = '#fff';
             // box.style.padding = '0.25em';
             // box.style.paddingTop = '0.15em';
