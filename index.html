@@ -56,7 +56,7 @@
                     <span class='f14 fw500'>Estabelecimentos comerciais</span>
                 </div>
             </div>
-            <div class='none_smxs inde-6 p025em wb center spacbwt ff aic'>
+            <div class='none_smxs inde-6 p015em wb center spacbwt ff aic' style='box-shadow:rgba(72, 71, 71, 0.12) 0px 2px 4px 0px'>
                 <div class='none_smxs col-sm-12 li105 col-xs-12 flex aic'>
                         <div class='w2e aic mr05em none'>
                             <a href='#' class='mr05e'><img src='imgs/icons/menub.png' class='img25'></a>
@@ -1245,7 +1245,7 @@
         var box = document.getElementById('boxWithShadow');
         var scrollPosition = window.scrollY;
     
-        var scrollThreshold = 130;
+        var scrollThreshold = 150;
     
         if (scrollPosition > scrollThreshold) {
             // box.style.boxShadow = 'rgba(0, 0, 0, 0.05) 0px 40px 20px, rgba(0, 0, 0, 0.15) -4px 7px 9px';
@@ -1259,8 +1259,8 @@
             // box.style.borderBottom = '1px solid #e4e4e4';
             box.style.padding = '0.25em 0em 0.25em 0.25em';
             // box.style.background = '#fffffff0';
-            // box.style.color = '#111';
-            // box.style.marginTop = '1.5em';
+            box.style.zIndex = '8';
+            box.style.marginTop = '1.65em';
             // box.style.paddingTop = '0.45em';
             // box.style.maxWidth = '100%';
         } else {
@@ -1272,7 +1272,8 @@
             box.style.padding = '0.25em 0em 0em 0.25em';
             // box.style.paddingTop = '0.15em';
             // box.style.paddingTop = '0';
-            // box.style.marginTop = '0';
+            box.style.marginTop = '0';
+            box.style.zIndex = '';
             // box.style.paddingLeft = '0.35em';
             // box.style.borderTop = '0';
             // box.style.borderBottom = '0';
